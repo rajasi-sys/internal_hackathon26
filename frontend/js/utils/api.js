@@ -28,42 +28,42 @@ async function apiPost(endpoint, data) {
     }
 }
 
-// ---- Real functions wired to the FastAPI backend ----
-
-async function registerUser(name, email, password) {
-    return await apiPost("/api/v1/auth/register", { name, email, password });
-}
-
-async function loginUser(email, password) {
-    return await apiPost("/api/v1/auth/login", { email, password });
-}
+// ---- Functions used by Person 2's components (dummy data for now) ----
 
 async function submitDailyEmission(data) {
-    // data must look like:
-    // { user_id, date_str: "YYYY-MM-DD", city, electricity_kwh, petrol_car_km, zero_emission_day }
-    return await apiPost("/api/v1/emissions/lock-daily", data);
+  console.log("Dummy submit daily emission:", data);
+  return { success: true };
 }
 
-async function getSolutions(city) {
-    return await apiGet(`/api/v1/solutions/recommendations/${city}`);
-}
-
-async function getForestStatus(userId) {
-    return await apiGet(`/api/v1/gamification/tree-status/${userId}`);
-}
-
-async function getLeaderboard(city = null) {
-    const query = city ? `?city=${encodeURIComponent(city)}` : "";
-    return await apiGet(`/api/v1/gamification/leaderboard${query}`);
-}
-
-// Note: there is no dedicated "user stats" endpoint on the backend yet
-// (see Step 6 from before). Keeping this as a placeholder until it exists.
 async function getUserStats() {
   return {
-    today: 0,
-    weekly: 0,
-    cityAverage: 0,
-    nationalAverage: 0,
+    today: 4.2,
+    weekly: 28.4,
+    cityAverage: 6.8,
+    nationalAverage: 7.5,
   };
+}
+
+async function getSolutions() {
+  return [
+    { action: "Switch 3 commute days to bus", co2Saved: 20, moneySaved: 800 },
+    { action: "Reduce AC usage by 2 hrs/day", co2Saved: 15, moneySaved: 500 },
+    { action: "Go vegetarian 3 days/week", co2Saved: 10, moneySaved: 300 },
+  ];
+}
+
+async function getForestStatus() {
+  return {
+    streak: 7,
+    treeStage: 3,
+  };
+}
+
+async function getLeaderboard() {
+  return [
+    { rank: 1, name: "Aditi", points: 320 },
+    { rank: 2, name: "Rohan", points: 290 },
+    { rank: 3, name: "You", points: 260 },
+    { rank: 4, name: "Sana", points: 210 },
+  ];
 }

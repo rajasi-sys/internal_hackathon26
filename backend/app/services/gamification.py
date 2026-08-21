@@ -3,11 +3,11 @@ from typing import List, Dict, Any, Optional
 def calculate_tree_stage(total_co2_saved_kg: float) -> Dict[str, Any]:
     """Calculates tree evolution levels (Seed -> Forest) based on CO2 savings."""
     if total_co2_saved_kg >= 500.0:
-        return {"stage": 5, "name": "Ancient Forest", "emoji": "🌲🌳🌲"}
+        return {"stage": 5, "name": "Ancient Forest", "emoji": "🌳🌳🌳"}
     elif total_co2_saved_kg >= 250.0:
-        return {"stage": 4, "name": "Mature Tree", "emoji": "🌳"}
+        return {"stage": 4, "name": "Mature Tree", "emoji": "🌲"}
     elif total_co2_saved_kg >= 100.0:
-        return {"stage": 3, "name": "Growing Sapling", "emoji": "🪵"}
+        return {"stage": 3, "name": "Growing Sapling", "emoji": "🌳"}
     elif total_co2_saved_kg >= 25.0:
         return {"stage": 2, "name": "Sprout", "emoji": "🌿"}
     else:

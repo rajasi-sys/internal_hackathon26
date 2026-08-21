@@ -1,7 +1,5 @@
-from sqlalchemy import Column, Integer, String, Float, ForeignKey
-from sqlalchemy.orm import declarative_base, relationship
-
-Base = declarative_base()
+from sqlalchemy import Column, Integer, String, Float
+from app.database import Base 
 
 class LeaderboardEntry(Base):
     __tablename__ = "leaderboard"
