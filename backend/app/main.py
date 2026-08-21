@@ -1,3 +1,12 @@
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+from app.routers import auth, profile, emissions, solutions, leaderboard
+from app.database import engine, Base
+
+# Initialize database tables
+Base.metadata.create_all(bind=engine)
+
 app = FastAPI(
     title="EcoQuest API",
     description="Backend services for carbon emission tracking, gamification, and profiling.",
