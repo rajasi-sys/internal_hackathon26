@@ -1,444 +1,469 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> 
+<html lang="en"> 
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
-    <title>EcoQuest 🌱</title>
+    <title>EcoQuest 🌱</title> 
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/styles.css">
-</head>
+    <!-- Font --> 
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
 
-<body>
+    <!-- CSS --> 
+    <link rel="stylesheet" href="css/styles.css"> 
+</head> 
 
-    <!-- =========================
-         NAVBAR
-    ========================== -->
-    <header id="navbar">
-        <div class="logo">
-            🌱 EcoQuest
-        </div>
+<body> 
 
-        <button id="logoutBtn" style="display: none;">
-            Logout
-        </button>
-    </header>
+    <!-- ========================= 
+         NAVBAR 
+    ========================== --> 
+    <header id="navbar"> 
 
+        <button id="menuToggle" class="hamburger" style="display:none;" aria-label="Menu"> 
+            <span></span><span></span><span></span> 
+        </button> 
 
-    <!-- =========================
-         AUTH SECTION
-    ========================== -->
-    <main>
+        <div class="logo"> 
+            🌱 EcoQuest 
+        </div> 
 
-        <section id="auth-section">
+        <button id="logoutBtn" style="display: none;"> 
+            Logout 
+        </button> 
+    </header> 
 
-            <div class="auth-container">
+    <!-- ========================= 
+         SIDEBAR 
+    ========================== --> 
+    <div id="sidebar" class="sidebar hidden"> 
+        <nav> 
+            <a href="#" class="sidebar-link" data-target="home-section">🏠 Home</a> 
+            <a href="#" class="sidebar-link" data-target="stats-section">📊 My Footprint</a> 
+            <a href="#" class="sidebar-link" data-target="logger-section">📝 Log Activity</a> 
+            <a href="#" class="sidebar-link" data-target="solutions-section">💡 Solutions</a> 
+            <a href="#" class="sidebar-link" data-target="forest-section">🌳 My Forest</a> 
+            <a href="#" class="sidebar-link" data-target="leaderboard-section">🏆 Leaderboard</a> 
+        </nav> 
+    </div> 
+    <div id="sidebarOverlay" class="sidebar-overlay hidden"></div> 
 
-                <h1>Welcome to EcoQuest 🌱</h1>
 
-                <p>
-                    Make sustainable choices, track your carbon footprint
-                    and compete with your friends.
-                </p>
+    <!-- ========================= 
+         AUTH SECTION 
+    ========================== --> 
+    <main> 
 
+        <section id="auth-section"> 
 
-                <!-- LOGIN -->
+            <div class="auth-container"> 
 
-                <div id="login-form">
+                <div class="hero-graphic">🌍🌱🌿</div> 
 
-                    <h2>Login</h2>
+                <h1>Welcome to EcoQuest 🌱</h1> 
 
-                    <form id="loginForm">
+                <p> 
+                    Make sustainable choices, track your carbon footprint 
+                    and compete with your friends. 
+                </p> 
 
-                        <label for="loginEmail">
-                            Email
-                        </label>
 
-                        <input
-                            type="email"
-                            id="loginEmail"
-                            placeholder="Enter your email"
-                            required
-                        >
+                <!-- LOGIN --> 
 
+                <div id="login-form"> 
 
-                        <label for="loginPassword">
-                            Password
-                        </label>
+                    <h2>Login</h2> 
 
-                        <input
-                            type="password"
-                            id="loginPassword"
-                            placeholder="Enter your password"
-                            required
-                        >
+                    <form id="loginForm"> 
 
+                        <label for="loginEmail"> 
+                            Email 
+                        </label> 
 
-                        <button type="submit">
-                            Login
-                        </button>
+                        <input 
+                            type="email" 
+                            id="loginEmail" 
+                            placeholder="Enter your email" 
+                            required 
+                        > 
 
-                    </form>
 
+                        <label for="loginPassword"> 
+                            Password 
+                        </label> 
 
-                    <p>
-                        Don't have an account?
+                        <input 
+                            type="password" 
+                            id="loginPassword" 
+                            placeholder="Enter your password" 
+                            required 
+                        > 
 
-                        <button
-                            type="button"
-                            id="showRegisterBtn"
-                        >
-                            Register
-                        </button>
-                    </p>
 
-                </div>
+                        <button type="submit"> 
+                            Login 
+                        </button> 
 
+                    </form> 
 
 
-                <!-- REGISTER -->
+                    <p> 
+                        Don't have an account? 
 
-                <div
-                    id="register-form"
-                    style="display: none;"
-                >
+                        <button 
+                            type="button" 
+                            id="showRegisterBtn" 
+                        > 
+                            Register 
+                        </button> 
+                    </p> 
 
-                    <h2>Create Account</h2>
+                </div> 
 
-                    <form id="registerForm">
 
-                        <label for="registerName">
-                            Name
-                        </label>
 
-                        <input
-                            type="text"
-                            id="registerName"
-                            placeholder="Enter your name"
-                            required
-                        >
+                <!-- REGISTER --> 
 
+                <div 
+                    id="register-form" 
+                    style="display: none;" 
+                > 
 
-                        <label for="registerEmail">
-                            Email
-                        </label>
+                    <h2>Create Account</h2> 
 
-                        <input
-                            type="email"
-                            id="registerEmail"
-                            placeholder="Enter your email"
-                            required
-                        >
+                    <form id="registerForm"> 
 
+                        <label for="registerName"> 
+                            Name 
+                        </label> 
 
-                        <label for="registerPassword">
-                            Password
-                        </label>
+                        <input 
+                            type="text" 
+                            id="registerName" 
+                            placeholder="Enter your name" 
+                            required 
+                        > 
 
-                        <input
-                            type="password"
-                            id="registerPassword"
-                            placeholder="Create a password"
-                            required
-                        >
 
+                        <label for="registerEmail"> 
+                            Email 
+                        </label> 
 
-                        <button type="submit">
-                            Create Account
-                        </button>
+                        <input 
+                            type="email" 
+                            id="registerEmail" 
+                            placeholder="Enter your email" 
+                            required 
+                        > 
 
-                    </form>
 
+                        <label for="registerPassword"> 
+                            Password 
+                        </label> 
 
-                    <p>
-                        Already have an account?
+                        <input 
+                            type="password" 
+                            id="registerPassword" 
+                            placeholder="Create a password" 
+                            required 
+                        > 
 
-                        <button
-                            type="button"
-                            id="showLoginBtn"
-                        >
-                            Login
-                        </button>
-                    </p>
 
-                </div>
+                        <button type="submit"> 
+                            Create Account 
+                        </button> 
 
-            </div>
+                    </form> 
 
-        </section>
 
+                    <p> 
+                        Already have an account? 
 
+                        <button 
+                            type="button" 
+                            id="showLoginBtn" 
+                        > 
+                            Login 
+                        </button> 
+                    </p> 
 
-        <!-- =========================
-             ONBOARDING SECTION
-        ========================== -->
+                </div> 
 
-        <section
-            id="onboarding-section"
-            style="display: none;"
-        >
+            </div> 
 
-            <div class="onboarding-container">
+        </section> 
 
-                <h1>Let's get to know you 🌱</h1>
 
-                <p>
-                    This will help EcoQuest understand your lifestyle
-                    and personalize your experience.
-                </p>
 
+        <!-- ========================= 
+             ONBOARDING SECTION 
+        ========================== --> 
 
-                <form id="onboardingForm">
+        <section 
+            id="onboarding-section" 
+            style="display: none;" 
+        > 
 
+            <div class="onboarding-container"> 
 
-                    <!-- CITY -->
+                <h1>Let's get to know you 🌱</h1> 
 
-                    <label for="city">
-                        City
-                    </label>
+                <p> 
+                    This will help EcoQuest understand your lifestyle 
+                    and personalize your experience. 
+                </p> 
 
-                    <input
-                        type="text"
-                        id="city"
-                        placeholder="e.g. Pune"
-                        required
-                    >
 
+                <form id="onboardingForm"> 
 
 
-                    <!-- AGE -->
+                    <!-- CITY --> 
 
-                    <label for="age">
-                        Age
-                    </label>
+                    <label for="city"> 
+                        City 
+                    </label> 
 
-                    <input
-                        type="number"
-                        id="age"
-                        min="10"
-                        max="100"
-                        required
-                    >
+                    <input 
+                        type="text" 
+                        id="city" 
+                        placeholder="e.g. Pune" 
+                        required 
+                    > 
 
 
 
-                    <!-- TRANSPORT -->
+                    <!-- AGE --> 
 
-                    <label for="transport">
-                        How do you usually travel?
-                    </label>
+                    <label for="age"> 
+                        Age 
+                    </label> 
 
-                    <select id="transport" required>
+                    <input 
+                        type="number" 
+                        id="age" 
+                        min="10" 
+                        max="100" 
+                        required 
+                    > 
 
-                        <option value="">
-                            Select an option
-                        </option>
 
-                        <option value="walking">
-                            Walking
-                        </option>
 
-                        <option value="cycling">
-                            Cycling
-                        </option>
+                    <!-- TRANSPORT --> 
 
-                        <option value="public_transport">
-                            Public Transport
-                        </option>
+                    <label for="transport"> 
+                        How do you usually travel? 
+                    </label> 
 
-                        <option value="two_wheeler">
-                            Two Wheeler
-                        </option>
+                    <select id="transport" required> 
 
-                        <option value="car">
-                            Car
-                        </option>
+                        <option value=""> 
+                            Select an option 
+                        </option> 
 
-                    </select>
+                        <option value="walking"> 
+                            Walking 
+                        </option> 
 
+                        <option value="cycling"> 
+                            Cycling 
+                        </option> 
 
+                        <option value="public_transport"> 
+                            Public Transport 
+                        </option> 
 
-                    <!-- DIET -->
+                        <option value="two_wheeler"> 
+                            Two Wheeler 
+                        </option> 
 
-                    <label for="diet">
-                        What best describes your diet?
-                    </label>
+                        <option value="car"> 
+                            Car 
+                        </option> 
 
-                    <select id="diet" required>
+                    </select> 
 
-                        <option value="">
-                            Select an option
-                        </option>
 
-                        <option value="vegan">
-                            Vegan
-                        </option>
 
-                        <option value="vegetarian">
-                            Vegetarian
-                        </option>
+                    <!-- DIET --> 
 
-                        <option value="mixed">
-                            Mixed
-                        </option>
+                    <label for="diet"> 
+                        What best describes your diet? 
+                    </label> 
 
-                    </select>
+                    <select id="diet" required> 
 
+                        <option value=""> 
+                            Select an option 
+                        </option> 
 
+                        <option value="vegan"> 
+                            Vegan 
+                        </option> 
 
-                    <!-- ELECTRICITY -->
+                        <option value="vegetarian"> 
+                            Vegetarian 
+                        </option> 
 
-                    <label for="electricity">
-                        Approximate monthly electricity usage
-                    </label>
+                        <option value="mixed"> 
+                            Mixed 
+                        </option> 
 
-                    <input
-                        type="number"
-                        id="electricity"
-                        placeholder="kWh"
-                        min="0"
-                    >
+                    </select> 
 
 
 
-                    <!-- BILL UPLOAD -->
+                    <!-- ELECTRICITY --> 
 
-                    <label for="bill">
-                        Upload your electricity/utility bill
-                    </label>
+                    <label for="electricity"> 
+                        Approximate monthly electricity usage 
+                    </label> 
 
-                    <input
-                        type="file"
-                        id="bill"
-                        accept="image/*,.pdf"
-                    >
+                    <input 
+                        type="number" 
+                        id="electricity" 
+                        placeholder="kWh" 
+                        min="0" 
+                    > 
 
 
-                    <small>
-                        Your bill is used to estimate your carbon footprint.
-                    </small>
 
+                    <!-- BILL UPLOAD --> 
 
-                    <br><br>
+                    <label for="bill"> 
+                        Upload your electricity/utility bill 
+                    </label> 
 
+                    <input 
+                        type="file" 
+                        id="bill" 
+                        accept="image/*,.pdf" 
+                    > 
 
-                    <button type="submit">
-                        Continue to EcoQuest →
-                    </button>
 
-                </form>
+                    <small> 
+                        Your bill is used to estimate your carbon footprint. 
+                    </small> 
 
-            </div>
 
-        </section>
+                    <br><br> 
 
 
+                    <button type="submit"> 
+                        Continue to EcoQuest → 
+                    </button> 
 
-        <!-- =========================
-             DASHBOARD
-        ========================== -->
+                </form> 
 
-        <section
-            id="dashboard-section"
-            style="display: none;"
-        >
+            </div> 
 
-            <div class="dashboard-container">
+        </section> 
 
-                <h1>
-                    Welcome, <span id="userName">Eco Warrior</span> 🌱
-                </h1>
 
-                <p>
-                    Here's your sustainability journey.
-                </p>
 
+        <!-- ========================= 
+             DASHBOARD 
+        ========================== --> 
 
+        <section 
+            id="dashboard-section" 
+            style="display: none;" 
+        > 
 
-                <!-- STATS -->
+            <div class="dashboard-container"> 
 
-                <div id="stats">
+                <!-- HOME (default view) --> 
+                <div id="home-section" class="dash-view"> 
 
-                    <!-- display_stats.js -->
+                    <div class="home-hero"> 
 
-                </div>
+                        <p class="home-greeting">Hello, <span id="userName">Eco Warrior</span> 👋</p> 
 
+                        <div class="earth-wrap"> 
+                            <div class="earth">🌍</div> 
+                        </div> 
 
+                        <p class="home-slogan">Track. Reduce. Repeat.</p> 
 
-                <!-- DAILY LOGGER -->
+                    </div> 
 
-                <div id="daily-logger">
+                </div> 
 
-                    <!-- daily_logger.js -->
 
-                </div>
+                <!-- STATS --> 
+                <div id="stats-section" class="dash-view hidden"> 
+                    <div id="stats"> 
+                        <!-- display_stats.js --> 
+                    </div> 
+                </div> 
 
 
+                <!-- DAILY LOGGER --> 
+                <div id="logger-section" class="dash-view hidden"> 
+                    <div id="daily-logger"> 
+                        <!-- daily_logger.js --> 
+                    </div> 
+                </div> 
 
-                <!-- SOLUTIONS -->
 
-                <div id="solutions">
+                <!-- SOLUTIONS --> 
+                <div id="solutions-section" class="dash-view hidden"> 
+                    <div id="solutions"> 
+                        <!-- solution_board.js --> 
+                    </div> 
+                </div> 
 
-                    <!-- solutions_board.js -->
 
-                </div>
+                <!-- VIRTUAL FOREST --> 
+                <div id="forest-section" class="dash-view hidden"> 
+                    <div id="forest"> 
+                        <!-- virtual_forest.js --> 
+                    </div> 
+                </div> 
 
 
+                <!-- LEADERBOARD --> 
+                <div id="leaderboard-section" class="dash-view hidden"> 
+                    <div id="leaderboard"> 
+                        <!-- leaderboard.js --> 
+                    </div> 
+                </div> 
 
-                <!-- VIRTUAL FOREST -->
+            </div> 
 
-                <div id="forest">
+        </section> 
 
-                    <!-- virtual_forest.js -->
+    </main> 
 
-                </div>
 
 
+    <!-- ========================= 
+         JAVASCRIPT 
+    ========================== --> 
 
-                <!-- GROUP / LEADERBOARD -->
+    <!-- Configuration --> 
+    <script src="js/config.js"></script> 
 
-                <div id="leaderboard">
+    <!-- Utilities --> 
+    <script src="js/utils/storage.js"></script> 
+    <script src="js/utils/api.js"></script> 
 
-                    <!-- leaderboard.js -->
 
-                </div>
+    <!-- Components --> 
+    <script src="js/components/auth.js"></script> 
+    <script src="js/components/onboarding.js"></script> 
 
-            </div>
+    <script src="js/components/daily_logger.js"></script> 
+    <script src="js/components/display_stats.js"></script> 
+    <script src="js/components/solution_board.js"></script> 
+    <script src="js/components/virtual_forest.js"></script> 
+    <script src="js/components/leaderboard.js"></script> 
 
-        </section>
 
-    </main>
+    <!-- Main application --> 
+    <script src="js/app.js"></script> 
 
-
-
-    <!-- =========================
-         JAVASCRIPT
-    ========================== -->
-
-    <!-- Configuration -->
-    <script src="js/config.js"></script>
-
-    <!-- Utilities -->
-    <script src="js/utils/storage.js"></script>
-    <script src="js/utils/api.js"></script>
-
-
-    <!-- Components -->
-    <script src="js/components/auth.js"></script>
-    <script src="js/components/onboarding.js"></script>
-
-    <script src="js/components/daily_logger.js"></script>
-    <script src="js/components/display_stats.js"></script>
-    <script src="js/components/solution_board.js"></script>
-    <script src="js/components/virtual_forest.js"></script>
-    <script src="js/components/leaderboard.js"></script>
-
-
-    <!-- Main application -->
-    <script src="js/app.js"></script>
-
-</body>
+</body> 
 
 </html>

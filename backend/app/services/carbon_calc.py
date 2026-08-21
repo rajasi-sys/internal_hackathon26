@@ -2,10 +2,10 @@ from typing import Dict, Tuple
 
 # Pre-defined city carbon averages (kg CO2 per capita per month)
 CITY_BENCHMARKS: Dict[str, float] = {
-    "New York": 450.0,
-    "London": 320.0,
+    "Pune": 175.0,
     "Mumbai": 210.0,
-    "Tokyo": 290.0,
+    "Bengaluru": 200.0,
+    "Kolkata": 180.0,
     "Default": 350.0
 }
 
@@ -26,8 +26,15 @@ def evaluate_city_benchmark(city: str, daily_co2_kg: float) -> Tuple[float, bool
     """
     monthly_benchmark = CITY_BENCHMARKS.get(city.title(), CITY_BENCHMARKS["Default"])
     daily_city_avg = round(monthly_benchmark / 30.0, 2)
+<<<<<<< HEAD
+    
+    over_emitting = daily_co2_kg > daily_city_avg
+    excess_co2 = round(daily_co2_kg - daily_city_avg, 2) if over_emitting else 0.0
+    
+=======
    
     over_emitting = daily_co2_kg > daily_city_avg
     excess_co2 = round(daily_co2_kg - daily_city_avg, 2) if over_emitting else 0.0
    
+>>>>>>> ca77f9df433ca9c85e2acfe33174b7e765d90763
     return daily_city_avg, over_emitting, excess_co2
