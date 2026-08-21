@@ -28,6 +28,16 @@ async function apiPost(endpoint, data) {
     }
 }
 
+// ---- Real functions wired to the FastAPI backend ----
+
+async function registerUser(name, email, password) {
+    return await apiPost("/api/v1/auth/register", { name, email, password });
+}
+
+async function loginUser(email, password) {
+    return await apiPost("/api/v1/auth/login", { email, password });
+}
+
 // ---- Functions used by Person 2's components (dummy data for now) ----
 
 async function submitDailyEmission(data) {
@@ -44,12 +54,15 @@ async function getUserStats() {
   };
 }
 
-async function getSolutions() {
-  return [
-    { action: "Switch 3 commute days to bus", co2Saved: 20, moneySaved: 800 },
-    { action: "Reduce AC usage by 2 hrs/day", co2Saved: 15, moneySaved: 500 },
-    { action: "Go vegetarian 3 days/week", co2Saved: 10, moneySaved: 300 },
-  ];
+async function getSolutions(city) {
+  return {
+    user_city: city,
+    solutions: [
+      { category: "Commute", current_action: "Driving solo", suggested_action: "Switch 3 commute days to bus", short_term_savings_usd: 800, long_term_carbon_reduction_kg: 20 },
+      { category: "Energy", current_action: "Standard grid power", suggested_action: "Reduce AC usage by 2 hrs/day", short_term_savings_usd: 500, long_term_carbon_reduction_kg: 15 },
+      { category: "Food", current_action: "Mixed diet", suggested_action: "Go vegetarian 3 days/week", short_term_savings_usd: 300, long_term_carbon_reduction_kg: 10 },
+    ]
+  };
 }
 
 async function getForestStatus() {

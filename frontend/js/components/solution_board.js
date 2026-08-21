@@ -10,15 +10,15 @@ async function renderSolutions() {
   // Grab the city from the user's saved profile
   const profileData = localStorage.getItem("ecoquestProfile");
   const userCity = profileData ? JSON.parse(profileData).city : "Default";
-  
-  const response = await getSolutions(userCity); 
+
+  const response = await getSolutions(userCity);
 
   // Safely extract the array of solutions from the backend response
   const solutionsArray = response && response.solutions ? response.solutions : [];
 
   // Rank by money saved per kg CO2 saved
   const ranked = [...solutionsArray].sort(
-    (a, b) => (b.short_term_savings_usd / b.long_term_carbon_reduction_kg) - 
+    (a, b) => (b.short_term_savings_usd / b.long_term_carbon_reduction_kg) -
               (a.short_term_savings_usd / a.long_term_carbon_reduction_kg)
   );
 
