@@ -11,10 +11,10 @@ router = APIRouter(prefix="/api/v1/emissions", tags=["Emissions Engine"])
 
 # City carbon averages in kg CO2 per capita per month
 CITY_BENCHMARKS: Dict[str, float] = {
-    "New York": 450.0,
-    "London": 320.0,
+    "Pune": 175.0,
     "Mumbai": 210.0,
-    "Tokyo": 290.0,
+    "Bengaluru": 200.0,
+    "Kolkata": 180.0,
     "Default": 350.0
 }
 
