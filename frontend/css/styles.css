@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #f4faf6;
+  color: #1a1a1a;
+}
+
+.hidden {
+  display: none;
+}
+
+#navbar {
+  background: #2e7d32;
+  color: white;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#app {
+  max-width: 800px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+
+.page h1 {
+  color: #2e7d32;
+  margin-bottom: 16px;
+}
+
+input, select, button {
+  font-size: 16px;
+  padding: 10px;
+  margin: 6px 0;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background: #2e7d32;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #256428;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 12px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
