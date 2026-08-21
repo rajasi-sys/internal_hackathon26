@@ -32,3 +32,11 @@ app.include_router(leaderboard.router)
 @app.get("/")
 def root():
     return {"message": "EcoQuest Backend API is up and running!"}
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://127.0.0.1:5500"],  # wherever you serve your frontend from
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)

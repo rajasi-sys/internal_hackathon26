@@ -45,7 +45,7 @@ showLoginBtn.addEventListener("click", function () {
 // REGISTER
 // ===============================
 
-registerForm.addEventListener("submit", function (event) {
+registerForm.addEventListener("submit", async function (event) {
 
     event.preventDefault();
 
@@ -53,20 +53,22 @@ registerForm.addEventListener("submit", function (event) {
     const email = document.getElementById("registerEmail").value;
     const password = document.getElementById("registerPassword").value;
 
-    // Temporary hackathon registration
-    const user = {
-        name: name,
-        email: email,
-        password: password
-    };
+    // Real registration — calls POST /api/v1/auth/register on the backend
+    const result = await registerUser(name, email, password);
 
-    localStorage.setItem("ecoquestUser", JSON.stringify(user));
+    if (result && result.status === "success") {
 
-    alert("Registration successful! Please login.");
+        alert("Registration successful! Please login.");
 
-    // Go back to login
-    registerSection.style.display = "none";
-    loginSection.style.display = "block";
+        // Go back to login
+        registerSection.style.display = "none";
+        loginSection.style.display = "block";
+
+    } else {
+
+        alert("Registration failed. Please try again.");
+
+    }
 
 });
 
@@ -75,36 +77,26 @@ registerForm.addEventListener("submit", function (event) {
 // LOGIN
 // ===============================
 
-loginForm.addEventListener("submit", function (event) {
+loginForm.addEventListener("submit", async function (event) {
 
     event.preventDefault();
 
     const email = document.getElementById("loginEmail").value;
     const password = document.getElementById("loginPassword").value;
 
-    const savedUser = JSON.parse(
-        localStorage.getItem("ecoquestUser")
-    );
+    // Real login — calls POST /api/v1/auth/login on the backend
+    const result = await loginUser(email, password);
 
-    // Check whether user exists
-    if (!savedUser) {
-
-        alert("No account found. Please register first.");
-        return;
-
-    }
-
-    // Check credentials
-    if (
-        email === savedUser.email &&
-        password === savedUser.password
-    ) {
+    if (result && result.status === "success") {
 
         // Store login status
         localStorage.setItem("loggedIn", "true");
 
         // Store username for dashboard
-        localStorage.setItem("currentUser", savedUser.name);
+        localStorage.setItem("currentUser", result.user.name);
+
+        // Store auth token (useful once real JWTs are added later)
+        localStorage.setItem("authToken", result.token);
 
         alert("Login successful! 🌱");
 
