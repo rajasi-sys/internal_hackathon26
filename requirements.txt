@@ -1,1 +1,6 @@
-streamlit
+fastapi
+uvicorn[standard]
+pydantic
+pydantic[email]
+SQLAlchemy
+python-multipart
